@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizky Nurahman Portfolio</title>
+  <!-- Font Orbitron -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <!-- Font Awesome untuk ikon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --accent:#ffeb3b;
+      --text:#f0f4f8;
+      --subtext:#e0f7fa;
+      --glass:rgba(255,255,255,0.1);
+      --bg1:#1a2a6c; --bg2:#b21f1f; --bg3:#fdbb2d;
+    }
+
+    html, body {
+      margin: 0; padding: 0; height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Pattern dekoratif ringan */
+    .pattern {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle at 20px 20px, rgba(255,255,255,0.08) 2px, transparent 0),
+                        radial-gradient(circle at 60px 60px, rgba(255,255,255,0.06) 2px, transparent 0);
+      background-size: 100px 100px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .header-name {
+      position: absolute; top: 20px; left: 20px;
+      font-size: 2.6em; font-family: 'Orbitron', sans-serif;
+      color: var(--accent); text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+      z-index: 3;
+    }
+
+    .container { display: flex; min-height: calc(100% - 60px); width: 100%; position: relative; z-index: 1; }
+
+    .left {
+      flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      padding: 40px; color: var(--text); text-align: left;
+    }
+    .left img {
+      max-width: 300px; margin-bottom: 20px; border-radius: 25px;
+      transform: rotate(-5deg); transition: transform 0.5s ease;
+    }
+    .left img:hover { transform: rotate(0deg) scale(1.05); }
+    .left p { font-size: 1.2em; line-height: 1.6; max-width: 420px; color: var(--subtext); }
+
+    .right {
+      flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+      padding: 40px; gap: 20px; position: relative;
+    }
+
+    .project-card {
+      background: var(--glass); backdrop-filter: blur(6px);
+      padding: 20px; border-radius: 20px; transform: rotate(-2deg);
+      transition: transform 0.3s ease; color: #fff; max-width: 340px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3); z-index: 1;
+    }
+    .project-card:nth-child(even){ align-self: flex-end; transform: rotate(2deg); }
+    .project-card:hover{ transform: scale(1.05) rotate(0deg); }
+    .project-card h3{ margin-bottom: 10px; color: var(--accent); }
+    .project-card p{ font-size: 1em; line-height: 1.4; }
+
+    /* Tombol kontak */
+    .contact-bar {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 20px; z-index: 2;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 8px;
+      padding: 10px 5px; border-radius: 999px; color: #fff; text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25); transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: 600; min-width: 140px; text-align: center;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+    .btn-ig { background: linear-gradient(45deg,#feda75,#d62976,#962fbf,#4f5bd5); }
+    .btn-wa { background: #25D366; }
+    .btn-gh { background: #24292e; }
+
+    /* Footer copyright */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 0.9em;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 1024px){
+      .container { flex-direction: column; overflow-y: auto; }
+      .left, .right { flex: none; width: 100%; align-items: center; text-align: center;}
+      .left img { max-width: 240px; }
+    }
+    @media (max-width: 600px){
+      .header-name { font-size: 1.7em; left: 16px; top: 14px; }
+      .container { flex-direction: column;}
+      .left { padding: 10px 10px; max-width: 90%;}
+      .left p { font-size: 1rem;}
+      .project-card {margin-bottom: 1px; }
+      .contact-bar { justify-content: center; padding-bottom: 10px; }
+      .right {max-width: 80%;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Pattern dekoratif -->
+  <div class="pattern"></div>
+
+  <div class="header-name">Rizky Nurahman</div>
+
+  <div class="container">
+    <div class="left">
+      <img src="src/image/vector.png" alt="Programmer Vector" />
+      <p>
+        Saya seorang yang suka <strong>menganalisis data</strong>,
+        membangun <strong>script automation</strong>, dan memahami
+        <strong>struktur program</strong>. Portofolio ini adalah cerminan eksplorasi saya
+        dalam scripting, automation, dan analisis sistem.
+      </p>
+
+      <div class="contact-bar">
+        <a class="btn btn-ig" href="https://instagram.com/username" target="_blank">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a class="btn btn-wa" href="https://wa.me/6281234567890" target="_blank">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a class="btn btn-gh" href="https://github.com/username" target="_blank">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="project-card">
+        <h3>Python Data Analyzer</h3>
+        <p>Script Python untuk parsing log dan menemukan pola tersembunyi dalam dataset besar.</p>
+      </div>
+      <div class="project-card">
+        <h3>Python Script Builder</h3>
+        <p>Tool builder untuk membuat script Python modular dan reusable dengan cepat.</p>
+      </div>
+      <div class="project-card">
+        <h3>Web Scraper</h3>
+        <p>Scraper yang stabil untuk mengekstrak data dari situs target dengan kontrol rate-limit dan parsing rapi.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Rizky Nurahman. All rights reserved.
+  </footer>
+</body>
+</html>
